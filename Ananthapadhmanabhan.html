@@ -3,97 +3,695 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Visiting Card</title>
+    <title>Ananthapadhmanabhan A | PursueStudy Team</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-purple: #4A1942;
+            --secondary-purple: #7B2869;
+            --accent-coral: #EB6A5A;
+            --light-purple: #F2E6F0;
+            --dark-text: #303336;
+            --light-text: #6c757d;
+            --background: #f8f9fa;
+        }
+        
         body {
-            background-color: #f8f9fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--background);
+            color: var(--dark-text);
+            overflow-x: hidden;
+            padding-top: 0;
+            margin: 0;
         }
-        .card {
-            max-width: 400px;
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            padding: 30px;
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        /* Header */
+        .site-header {
+            background: linear-gradient(135deg, var(--secondary-purple), var(--primary-purple));
+            padding: 1rem 0;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            height: 50px;
+        }
+        
+        /* Hero section */
+        .hero-section {
+            background: linear-gradient(rgba(74, 25, 66, 0.9), rgba(123, 40, 105, 0.85)), url('https://images.unsplash.com/photo-1497864149936-d3163f0c0f4b?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4rem;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8f9fa' fill-opacity='1' d='M0,224L80,208C160,192,320,160,480,165.3C640,171,800,213,960,213.3C1120,213,1280,171,1360,149.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        .profile-section {
+            margin-top: -120px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .profile-card {
             background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-top: 5px solid var(--accent-coral);
         }
+        
+        .profile-img-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: -90px auto 30px;
+        }
+        
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 20px;
-            background-color: #e9ecef;
+            border: 6px solid white;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 3rem;
+            color: white;
+            font-size: 4rem;
         }
-        .card-info {
-            margin-bottom: 15px;
+        
+        .status-indicator {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .card-info i {
-            margin-right: 10px;
+        
+        .name-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 5px;
+        }
+        
+        .job-title {
+            color: var(--accent-coral);
             font-size: 1.2rem;
-            color: #6c757d;
-        }
-        .card-info a {
-            text-decoration: none;
-            color: #0d6efd;
-        }
-        .full-name {
-            font-size: 1.8rem;
             font-weight: 600;
-            color: #343a40;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
+        
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            background-color: var(--light-purple);
+            transition: all 0.3s ease;
+        }
+        
+        .info-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(74, 25, 66, 0.1);
+            background-color: white;
+            border-left: 4px solid var(--primary-purple);
+        }
+        
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            color: var(--primary-purple);
+            border-radius: 10px;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-item:hover .info-icon {
+            background-color: var(--primary-purple);
+            color: white;
+        }
+        
+        .info-content {
+            flex: 1;
+        }
+        
+        .info-label {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            margin-bottom: 0.2rem;
+        }
+        
+        .info-value {
+            font-weight: 600;
+            color: var (--dark-text);
+        }
+        
+        .info-value a {
+            color: var(--dark-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .info-value a:hover {
+            color: var(--primary-purple);
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 2rem 0;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--light-purple);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-purple);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-purple);
+            color: white;
+            transform: translateY(-5px) rotate(360deg);
+            box-shadow: 0 5px 15px rgba(74, 25, 66, 0.3);
+        }
+        
+        /* Skills Section */
+        .section-title {
+            color: var(--primary-purple);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 60px;
+            background-color: var(--accent-coral);
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background-color: white;
+            color: var(--primary-purple);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background-color: var(--primary-purple);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(74, 25, 66, 0.2);
+        }
+        
+        /* Experience */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--light-purple);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: white;
+            border: 2px solid var(--primary-purple);
+            z-index: 1;
+        }
+        
+        .timeline-date {
+            color: var(--accent-coral);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-company {
+            color: var(--light-text);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Projects */
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card-body {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            color: var(--dark-text);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 1rem;
+        }
+        
+        .project-tag {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            background-color: var(--light-purple);
+            color: var(--primary-purple);
+            border-radius: 4px;
+        }
+        
+        /* QR Section */
         .qr-section {
-            margin-top: 30px;
             text-align: center;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
+        
         .qr-img {
             max-width: 150px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 10px;
             margin: 0 auto;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--secondary-purple), var(--primary-purple));
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: -4rem;
+            left: 0;
+            right: 0;
+            height: 4rem;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%234A1942' fill-opacity='1' d='M0,192L60,176C120,160,240,128,360,128C480,128,600,160,720,176C840,192,960,192,1080,176C1200,160,1320,128,1380,112L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+        }
+        
+        .footer-logo {
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .profile-section {
+                margin-top: -80px;
+            }
+            
+            .profile-img-container {
+                width: 150px;
+                height: 150px;
+                margin: -75px auto 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 4rem 0;
+            }
+            
+            .profile-section {
+                margin-top: -60px;
+            }
+            
+            .profile-img-container {
+                width: 120px;
+                height: 120px;
+                margin: -60px auto 20px;
+            }
+            
+            .name-title {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card mx-auto text-center">
-            <div class="profile-img">
-                <i class="bi bi-person"></i>
-            </div>
-            
-            <h1 class="full-name">
-                <i class="bi bi-person"></i> Ananthapadhmanabhan A
-            </h1>
-            
-            <div class="card-info">
-                <i class="bi bi-envelope"></i>
-                <a href="mailto:ananthapathmanabhan.work.007@gmail.com">ananthapathmanabhan.work.007@gmail.com</a>
-            </div>
-            
-            <div class="card-info">
-                <i class="bi bi-badge-id"></i>
-                <span>Ananth002</span>
-            </div>
-
-            <div class="qr-section">
-                <img src="virtual_card_qr.png" alt="QR Code" class="qr-img img-fluid">
-                <p class="mt-2 text-muted small">Scan to view digital card</p>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="https://pursuestudy.com" class="d-flex align-items-center">
+                    <img src="https://pursuestudy.com/assets/images/ps-logo-white.svg" alt="PursueStudy Logo" class="logo">
+                </a>
+                <div>
+                    <a href="https://pursuestudy.com" class="btn btn-outline-light btn-sm">Back to Main Site</a>
+                </div>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- Bootstrap JS (optional) -->
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 data-aos="fade-up">Team Member Profile</h1>
+            <p data-aos="fade-up" data-aos-delay="100" class="lead">Meet one of our talented professionals</p>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="profile-card" data-aos="fade-up">
+                        <div class="profile-img-container">
+                            <div class="profile-img">
+                                <i class="bi bi-person"></i>
+                            </div>
+                            <div class="status-indicator"></div>
+                        </div>
+                        
+                        <div class="text-center mb-4">
+                            <h2 class="name-title">Ananthapadhmanabhan A</h2>
+                            <p class="job-title">Senior Software Engineer</p>
+                        </div>
+
+                        <div class="contact-info">
+                            <div class="info-item" data-aos="fade-up">
+                                <div class="info-icon">
+                                    <i class="bi bi-envelope-fill"></i>
+                                </div>
+                                <div class="info-content">
+                                    <div class="info-label">Email Address</div>
+                                    <div class="info-value">
+                                        <a href="mailto:ananthapathmanabhan.work.007@gmail.com">ananthapathmanabhan.work.007@gmail.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item" data-aos="fade-up" data-aos-delay="50">
+                                <div class="info-icon">
+                                    <i class="bi bi-telephone-fill"></i>
+                                </div>
+                                <div class="info-content">
+                                    <div class="info-label">Phone Number</div>
+                                    <div class="info-value">
+                                        <a href="tel:+910000000000">+91 00000 00000</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item" data-aos="fade-up" data-aos-delay="100">
+                                <div class="info-icon">
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                </div>
+                                <div class="info-content">
+                                    <div class="info-label">Location</div>
+                                    <div class="info-value">Bangalore, India</div>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item" data-aos="fade-up" data-aos-delay="150">
+                                <div class="info-icon">
+                                    <i class="bi bi-building"></i>
+                                </div>
+                                <div class="info-content">
+                                    <div class="info-label">Employee ID</div>
+                                    <div class="info-value">Ananth002</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="#" class="social-link" data-aos="zoom-in" data-aos-delay="0">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-link" data-aos="zoom-in" data-aos-delay="100">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="#" class="social-link" data-aos="zoom-in" data-aos-delay="200">
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+                            <a href="#" class="social-link" data-aos="zoom-in" data-aos-delay="300">
+                                <i class="bi bi-globe"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="profile-card" data-aos="fade-up">
+                        <h3 class="section-title">Technical Skills</h3>
+                        
+                        <div class="skills-container">
+                            <div class="skill-tag" data-aos="zoom-in" data-aos-delay="0">Java</div>
+                            <div class="skill-tag" data-aos="zoom-in" data-aos-delay="50">Python</div>
+                            <div class="skill-tag" data-aos="zoom-in" data-aos-delay="100">JavaScript</div>
+                            <div class="skill-tag" data-aos="zoom-in" data-aos-delay="150">React</div>
+                            <div class="skill-tag" data-aos="zoom-in" data-aos-delay="200">Node.js</div>
+                            <div class="skill-tag" data-aos="zoom-in" data-aos-delay="250">AWS</div>
+                            <div class="skill-tag" data-aos="zoom-in" data-aos-delay="300">Docker</div>
+                            <div class="skill-tag" data-aos="zoom-in" data-aos-delay="350">Kubernetes</div>
+                            <div class="skill-tag" data-aos="zoom-in" data-aos-delay="400">Spring Boot</div>
+                            <div class="skill-tag" data-aos="zoom-in" data-aos-delay="450">MongoDB</div>
+                            <div class="skill-tag" data-aos="zoom-in" data-aos-delay="500">SQL</div>
+                            <div class="skill-tag" data-aos="zoom-in" data-aos-delay="550">CI/CD</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="profile-card" data-aos="fade-up">
+                        <h3 class="section-title">Experience</h3>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item" data-aos="fade-up">
+                                <div class="timeline-date">2021 - Present</div>
+                                <h4 class="timeline-title">Senior Software Engineer</h4>
+                                <div class="timeline-company">PursueStudy, Bangalore</div>
+                                <p>Led development of scalable microservices architecture, mentored junior engineers, and implemented CI/CD pipelines to streamline deployment processes.</p>
+                            </div>
+                            
+                            <div class="timeline-item" data-aos="fade-up">
+                                <div class="timeline-date">2018 - 2021</div>
+                                <h4 class="timeline-title">Software Engineer</h4>
+                                <div class="timeline-company">Tech Innovations Ltd, Bangalore</div>
+                                <p>Designed and developed web applications using React and Node.js, collaborated with cross-functional teams to deliver high-quality software solutions.</p>
+                            </div>
+                            
+                            <div class="timeline-item" data-aos="fade-up">
+                                <div class="timeline-date">2016 - 2018</div>
+                                <h4 class="timeline-title">Junior Developer</h4>
+                                <div class="timeline-company">CodeCraft Solutions, Chennai</div>
+                                <p>Contributed to frontend development using HTML, CSS, and JavaScript, participated in agile development processes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="profile-card" data-aos="fade-up">
+                        <h3 class="section-title">Projects</h3>
+                        
+                        <div class="row">
+                            <div class="col-md-6" data-aos="fade-up">
+                                <div class="project-card">
+                                    <div class="project-card-body">
+                                        <h4 class="project-title">Learning Management System</h4>
+                                        <p>Developed a comprehensive LMS with features for course creation, student enrollment, and progress tracking.</p>
+                                        <div class="project-tags">
+                                            <span class="project-tag">React</span>
+                                            <span class="project-tag">Node.js</span>
+                                            <span class="project-tag">MongoDB</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                                <div class="project-card">
+                                    <div class="project-card-body">
+                                        <h4 class="project-title">Student Portal API</h4>
+                                        <p>Built a scalable API service for student information management with comprehensive documentation.</p>
+                                        <div class="project-tags">
+                                            <span class="project-tag">Java</span>
+                                            <span class="project-tag">Spring Boot</span>
+                                            <span class="project-tag">PostgreSQL</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mx-auto">
+                    <div class="qr-section" data-aos="fade-up">
+                        <h4 class="mb-3">Scan to Connect</h4>
+                        <img src="virtual_card_qr.png" alt="QR Code" class="qr-img img-fluid">
+                        <p class="mt-3 text-muted">Scan this QR code to save contact information</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <img src="https://pursuestudy.com/assets/images/ps-logo-white.svg" alt="PursueStudy Logo" class="footer-logo">
+            
+            <div class="footer-links">
+                <a href="https://pursuestudy.com/about">About Us</a>
+                <a href="https://pursuestudy.com/courses">Courses</a>
+                <a href="https://pursuestudy.com/team">Our Team</a>
+                <a href="https://pursuestudy.com/contact">Contact</a>
+            </div>
+            
+            <p class="copyright">© 2023 PursueStudy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        });
+    </script>
 </body>
 </html>

@@ -11,6 +11,7 @@ This project contains a responsive HTML page for a virtual visiting card and a P
 ## HTML Visiting Card
 
 The `index.html` file contains a responsive virtual visiting card that displays:
+
 - Full Name (with a user icon)
 - Email address (with a mail icon, clickable mailto: link)
 - Employee ID (with an ID badge icon)
@@ -19,7 +20,7 @@ The card uses Bootstrap and Bootstrap Icons for styling and icons. It is respons
 
 ## QR Code Generator
 
-The `generate_qr.py` script generates a QR code that links to the hosted version of the virtual visiting card. 
+The `generate_qr.py` script generates a QR code that links to the hosted version of the virtual visiting card.
 
 ### Requirements
 
