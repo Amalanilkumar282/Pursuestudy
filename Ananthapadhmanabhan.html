@@ -54,6 +54,27 @@
             transform: scale(1.05);
         }
         
+        /* Custom button styling */
+        .btn-custom {
+            background-color: var(--accent-coral);
+            border: 2px solid var(--accent-coral);
+            color: white;
+            border-radius: 25px;
+            padding: 0.35rem 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-custom:hover {
+            background-color: white;
+            color: var(--accent-coral);
+            border-color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(235, 106, 90, 0.3);
+        }
+        
         /* Hero section */
         .hero-section {
             background: linear-gradient(rgba(74, 25, 66, 0.9), rgba(123, 40, 105, 0.85)), url('https://images.unsplash.com/photo-1497864149936-d3163f0c0f4b?auto=format&fit=crop&w=1500&q=80');
@@ -523,6 +544,11 @@
                 font-size: 1.1rem;
             }
             
+            .btn-custom {
+                padding: 0.25rem 1rem;
+                font-size: 0.85rem;
+            }
+            
             .timeline {
                 padding-left: 1.5rem;
             }
@@ -739,6 +765,11 @@
             .profile-card {
                 padding: 1.2rem 1rem;
             }
+            
+            .btn-custom {
+                padding: 0.15rem 0.7rem;
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -751,7 +782,7 @@
                     <img src="Primary1.webp" alt="PursueStudy Logo" class="logo">
                 </a>
                 <div>
-                    <a href="https://pursuestudy.com" class="btn btn-outline-light btn-sm">Back to Main Site</a>
+                    <a href="https://pursuestudy.com" class="btn-custom">Back to Main Site</a>
                 </div>
             </div>
         </div>
@@ -762,7 +793,7 @@
         <div class="container text-center">
             <h1 data-aos="fade-up">Team Member Profile</h1>
             <p data-aos="fade-up" data-aos-delay="100" class="lead">Meet one of our talented professionals</p>
-        </div>
+        </div><br><br>
     </section>
 
     <!-- Profile Section -->
@@ -782,7 +813,16 @@
                             <h2 class="name-title">Ananthapadhmanabhan A</h2>
                             <p class="job-title">Business Development Associate</p>
                         </div>
-
+                        
+                         <div class="info-item" data-aos="fade-up" data-aos-delay="150">
+                                <div class="info-icon">
+                                    <i class="bi bi-building"></i>
+                                </div>
+                                <div class="info-content">
+                                    <div class="info-label">Employee ID</div>
+                                    <div class="info-value">Ananth002</div>
+                                </div>
+                            </div>
                         <div class="contact-info">
                             <div class="info-item" data-aos="fade-up">
                                 <div class="info-icon">
@@ -818,15 +858,7 @@
                                 </div>
                             </div>
                             
-                            <div class="info-item" data-aos="fade-up" data-aos-delay="150">
-                                <div class="info-icon">
-                                    <i class="bi bi-building"></i>
-                                </div>
-                                <div class="info-content">
-                                    <div class="info-label">Employee ID</div>
-                                    <div class="info-value">Ananth002</div>
-                                </div>
-                            </div>
+                           
                         </div>
                         
                         <div class="social-links">
@@ -837,7 +869,7 @@
                                 <i class="bi bi-github"></i>
                             </a>
                             <a href="#" class="social-link" data-aos="zoom-in" data-aos-delay="200">
-                                <i class="bi bi-twitter-x"></i>
+                                <i class="bi bi-instagram"></i>
                             </a>
                             <a href="#" class="social-link" data-aos="zoom-in" data-aos-delay="300">
                                 <i class="bi bi-globe"></i>
