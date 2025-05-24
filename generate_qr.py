@@ -37,7 +37,7 @@ def generate_qr_code(url, output_filename="virtual_card_qr.png"):
 
 if __name__ == "__main__":
     # Replace this URL with the actual hosted URL of your virtual visiting card
-    card_url = "https://pursuestudy.vercel.app/Ananthapadhmanabhan.html"
+    card_url = "https://pursuestudy.vercel.app/ImthiyasNihal.html"
     
     # Generate the QR code
     generate_qr_code(card_url)
