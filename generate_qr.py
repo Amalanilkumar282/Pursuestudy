@@ -19,8 +19,8 @@ def generate_qr_code(url, output_filename="virtual_card_qr.png"):
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_H,
-        box_size=10,
-        border=4,
+        box_size=50,
+        border=1,
     )
     
     # Add data to the QR code
@@ -28,7 +28,7 @@ def generate_qr_code(url, output_filename="virtual_card_qr.png"):
     qr.make(fit=True)
     
     # Create an image from the QR code
-    img = qr.make_image(fill_color="black", back_color="white")
+    img = qr.make_image(fill_color="black", back_color="#fed564")
     
     # Save the image
     img.save(output_filename)
